@@ -1,45 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Form validation
-    const forms = document.querySelectorAll("form");
-    forms.forEach(form => {
-        form.addEventListener("submit", function (event) {
-            let kitName = form.querySelector("[name='kit_name']");
-            let contents = form.querySelector("[name='contents']");
+document.addEventListener("DOMContentLoaded", () => {
 
-            if (!kitName.value.trim()) {
-                alert("Kit Name is required.");
-                kitName.focus();
-                event.preventDefault();
-                return false;
-            }
+    document.querySelectorAll("form").forEach(form => {
 
-            if (!contents.value.trim()) {
-                alert("Contents field cannot be empty.");
-                contents.focus();
-                event.preventDefault();
-                return false;
-            }
+        form.addEventListener("submit", e => {
+
+            let valid = true;
+
+            form.querySelectorAll("[required]").forEach(input => {
+
+                removeError(input);
+
+                if (!input.value.trim()) {
+                    showError(input, "This field is required");
+                    valid = false;
+                }
+
+            });
+
+            if (!valid) e.preventDefault();
+
         });
+
     });
 
-    // Highlight rows based on status
-    const rows = document.querySelectorAll("table tr");
-    rows.forEach(row => {
-        let statusCell = row.querySelector("td:nth-child(5)");
-        if (statusCell) {
-            let status = statusCell.textContent.trim();
-            if (status === "Available") {
-                row.style.backgroundColor = "#d4edda"; // green
-            } else if (status === "Deployed") {
-                row.style.backgroundColor = "#fff3cd"; // yellow
-            } else if (status === "Needs Restock") {
-                row.style.backgroundColor = "#f8d7da"; // red
-            }
-        }
+    document.querySelectorAll("table tbody tr").forEach(row => {
+
+        const statusCell = row.cells[4];
+        if (!statusCell) return;
+
+        const status = statusCell.textContent.trim().toLowerCase();
+
+        if (status === "available") row.classList.add("available");
+        if (status === "deployed") row.classList.add("deployed");
+        if (status === "needs restock") row.classList.add("restock");
+
     });
+
 });
 
-// Confirmation before delete
+
+function showError(input, message) {
+
+    input.classList.add("is-invalid");
+
+    const error = document.createElement("small");
+    error.className = "error-text";
+    error.innerText = message;
+
+    input.parentNode.appendChild(error);
+}
+
+function removeError(input) {
+
+    input.classList.remove("is-invalid");
+
+    const error = input.parentNode.querySelector(".error-text");
+    if (error) error.remove();
+}
+
+
 function confirmDelete() {
-    return confirm("Are you sure you want to delete this kit?");
+    return confirm("Delete this kit permanently?");
 }
