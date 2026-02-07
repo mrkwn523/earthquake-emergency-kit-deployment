@@ -94,7 +94,7 @@
     <select name="status" id="status" required>
         <option value="Available">Available</option>
         <option value="Deployed">Deployed</option>
-        <option value="Restock">Restock</option>
+        <option value="Needs Restock">Needs Restock</option>
     </select>
 
     <button type="submit">Add Kit</button>
