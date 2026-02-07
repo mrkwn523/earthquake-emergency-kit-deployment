@@ -1,6 +1,7 @@
 <?php
 include("db_connect.php");
-$id = $_GET['id'];
+
+$id = (int)$_GET['id'];
 $result = $conn->query("SELECT * FROM kits WHERE id = $id");
 $row = $result->fetch_assoc();
 ?>
@@ -22,16 +23,16 @@ $row = $result->fetch_assoc();
         }
         form {
             background: #fff;
-            padding: 25px 30px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             width: 400px;
         }
-        form h2 {
+        h2 {
+            text-align: center;
             margin-bottom: 20px;
             font-weight: 600;
             color: #333;
-            text-align: center;
         }
         label {
             display: block;
@@ -44,8 +45,8 @@ $row = $result->fetch_assoc();
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background: #fff;
             font-size: 14px;
+            background: #fff;
         }
         button {
             width: 100%;
@@ -54,20 +55,23 @@ $row = $result->fetch_assoc();
             color: #fff;
             border: none;
             border-radius: 5px;
-            font-weight: 600;
             cursor: pointer;
+            font-weight: 600;
             transition: 0.3s;
         }
-        button:hover { background: #555; }
+        button:hover {
+            background: #555;
+        }
         .back-link {
             display: block;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
             color: #333;
             text-decoration: none;
-            font-size: 14px;
         }
-        .back-link:hover { text-decoration: underline; }
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -76,13 +80,13 @@ $row = $result->fetch_assoc();
     <h2>Edit Kit</h2>
 
     <label for="kit_name">Kit Name</label>
-    <input type="text" name="kit_name" id="kit_name" value="<?php echo $row['kit_name']; ?>" required>
+    <input type="text" name="kit_name" id="kit_name" value="<?php echo htmlspecialchars($row['kit_name']); ?>" required>
 
     <label for="contents">Contents</label>
-    <textarea name="contents" id="contents" rows="3" required><?php echo $row['contents']; ?></textarea>
+    <textarea name="contents" id="contents" rows="3" required><?php echo htmlspecialchars($row['contents']); ?></textarea>
 
     <label for="location">Location</label>
-    <input type="text" name="location" id="location" value="<?php echo $row['location']; ?>" required>
+    <input type="text" name="location" id="location" value="<?php echo htmlspecialchars($row['location']); ?>" required>
 
     <label for="status">Status</label>
     <select name="status" id="status" required>
