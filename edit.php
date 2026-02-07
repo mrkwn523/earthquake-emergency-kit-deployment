@@ -92,7 +92,7 @@ $row = $result->fetch_assoc();
     <select name="status" id="status" required>
         <option value="Available" <?php if($row['status']=="Available") echo "selected"; ?>>Available</option>
         <option value="Deployed" <?php if($row['status']=="Deployed") echo "selected"; ?>>Deployed</option>
-        <option value="Restock" <?php if($row['status']=="Restock") echo "selected"; ?>>Restock</option>
+        <option value="Needs Restock" <?php if($row['status']=="Needs Restock") echo "selected"; ?>>Needs Restock</option>
     </select>
 
     <button type="submit">Update Kit</button>
