@@ -1,87 +1,64 @@
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
-    background: #f8f9fa;
+    font-family: Segoe UI;
+    background:#f8f9fa;
+    margin:20px;
 }
 
 header {
-    background-color: #b22222;
-    color: white;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-header h1 {
-    margin: 0;
-    font-size: 1.8em;
+    background:#b22222;
+    color:white;
+    padding:15px 20px;
+    border-radius:6px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 header a {
-    background-color: white;
-    color: #b22222;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background:white;
+    color:#b22222;
+    padding:8px 12px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 header a:hover {
-    background-color: #b22222;
-    color: white;
-}
-
-h2 {
-    color: #b22222;
-    margin-top: 0;
+    background:#b22222;
+    color:white;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    margin-top:20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+th,td {
+    border:1px solid #ddd;
+    padding:10px;
 }
 
 th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+    background:#f0f0f0;
 }
 
-tr:hover {
-    background-color: #f9f9f9;
+.available { background:#d4edda; }
+.deployed { background:#fff3cd; }
+.restock { background:#f8d7da; }
+
+.is-invalid {
+    border:2px solid #dc3545;
 }
 
-a {
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #0066cc;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.error-text {
+    color:#dc3545;
+    font-size:12px;
 }
 
-a:hover {
-    background-color: #0066cc;
-    color: white;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input, textarea, select {
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 300px;
+input,textarea,select {
+    width:300px;
+    padding:5px;
+    margin-bottom:10px;
 }
