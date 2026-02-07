@@ -1,64 +1,73 @@
 body {
-    font-family: Segoe UI;
-    background:#f8f9fa;
-    margin:20px;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+    margin: 20px;
+    color: #333;
 }
 
 header {
-    background:#b22222;
-    color:white;
-    padding:15px 20px;
-    border-radius:6px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    background: #ffffff;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 header a {
-    background:white;
-    color:#b22222;
-    padding:8px 12px;
-    border-radius:4px;
-    text-decoration:none;
-    font-weight:bold;
+    background: #e0e0e0;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 header a:hover {
-    background:#b22222;
-    color:white;
+    background: #333;
+    color: #fff;
 }
 
 table {
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    margin-top:20px;
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-th,td {
-    border:1px solid #ddd;
-    padding:10px;
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
 }
 
 th {
-    background:#f0f0f0;
+    background: #f0f0f0;
 }
 
-.available { background:#d4edda; }
-.deployed { background:#fff3cd; }
-.restock { background:#f8d7da; }
+.available { background: #e6f7e6; }
+.deployed { background: #fffbe6; }
+.restock { background: #ffe6e6; } 
 
 .is-invalid {
-    border:2px solid #dc3545;
+    border: 2px solid #ff4d4f; 
 }
 
 .error-text {
-    color:#dc3545;
-    font-size:12px;
+    color: #ff4d4f;
+    font-size: 12px;
 }
 
-input,textarea,select {
-    width:300px;
-    padding:5px;
-    margin-bottom:10px;
+input, textarea, select {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
 }
+
