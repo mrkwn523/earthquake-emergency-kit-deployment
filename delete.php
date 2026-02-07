@@ -1,10 +1,12 @@
-<?php include("db_connect.php"); ?>
 <?php
-$id = $_GET['id'];
-$sql = "DELETE FROM kits WHERE id=$id";
-if($conn->query($sql) === TRUE){
-    echo "Kit deleted successfully! <a href='index.php'>Back to Dashboard</a>";
-} else {
-    echo "Error deleting record: " . $conn->error;
+include("db_connect.php");
+
+if(isset($_GET['id'])) {
+    $id = (int)$_GET['id']; 
+
+    $conn->query("DELETE FROM kits WHERE id = $id");
 }
+
+header("Location: index.php");
+exit();
 ?>
