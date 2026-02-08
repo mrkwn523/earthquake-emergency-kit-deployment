@@ -2,6 +2,8 @@
 include("db_connect.php");
 
 $id = $_GET['id'];
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
 $result = $conn->query("SELECT * FROM kits WHERE id=$id");
 $row = $result->fetch_assoc();
 ?>
@@ -16,7 +18,7 @@ $row = $result->fetch_assoc();
 
 <header>
     <h1>Update Emergency Kit</h1>
-    <a href="index.php">← Back to Dashboard</a>
+    <a href="index.php?page=<?php echo $page; ?>">← Back to Dashboard</a>
 </header>
 
 <!-- Kit Gallery Section -->
@@ -56,37 +58,37 @@ $row = $result->fetch_assoc();
 <div class="form-container">
     <form method="POST" action="edit_process.php">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+        <input type="hidden" name="page" value="<?php echo $page; ?>">
 
-        <!-- Kit Name via Radio Buttons -->
-        <label>Kit Name</label>
+        <!-- Kit Type via Radio Buttons -->
+        <label>Kit Type</label>
         <div class="radio-group">
             <label>
-                <input type="radio" name="kit_name" value="Family Kit" 
-                    <?php if($row['kit_name'] == 'Family Kit') echo 'checked'; ?>>
+                <input type="radio" name="kit_type" value="Family Kit" 
+                    <?php if($row['kit_type'] == 'Family Kit') echo 'checked'; ?>>
                 Family Kit
             </label>
             <label>
-                <input type="radio" name="kit_name" value="First Aid Kit" 
-                    <?php if($row['kit_name'] == 'First Aid Kit') echo 'checked'; ?>>
+                <input type="radio" name="kit_type" value="First Aid Kit" 
+                    <?php if($row['kit_type'] == 'First Aid Kit') echo 'checked'; ?>>
                 First Aid Kit
             </label>
             <label>
-                <input type="radio" name="kit_name" value="Rescue Kit" 
-                    <?php if($row['kit_name'] == 'Rescue Kit') echo 'checked'; ?>>
+                <input type="radio" name="kit_type" value="Rescue Kit" 
+                    <?php if($row['kit_type'] == 'Rescue Kit') echo 'checked'; ?>>
                 Rescue Kit
             </label>
         </div>
 
         <!-- Location -->
         <label for="location">Location</label>
-        <input type="text" name="location" id="location" 
-               value="<?php echo $row['location']; ?>" required>
+        <textarea name="location" id="location" rows="3" required><?php echo $row['location']; ?></textarea>
+
 
         <!-- Status -->
         <label for="status">Status</label>
         <select name="status" id="status" required>
-            <option value="Available" <?php if($row['status']=='Available') echo 'selected'; ?>>Available</option>
-            <option value="Deployed" <?php if($row['status']=='Deployed') echo 'selected'; ?>>Deployed</option>
+            <option value="Currently Stocked" <?php if($row['status']=='Currently Stocked') echo 'selected'; ?>>Currently Stocked</option>
             <option value="Needs Restock" <?php if($row['status']=='Needs Restock') echo 'selected'; ?>>Needs Restock</option>
         </select>
 
