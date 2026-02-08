@@ -9,39 +9,13 @@
             return confirm("Are you sure you want to delete this kit?");
         }
     </script>
-    <style>
-
-        .pagination {
-            margin-top: 15px;
-        }
-        .pagination a, .pagination span {
-            display: inline-block;
-            padding: 6px 12px;
-            margin-right: 5px;
-            border-radius: 4px;
-            text-decoration: none;
-            border: 1px solid #ccc;
-            background: #f0f0f0;
-            color: #333;
-            transition: 0.3s;
-        }
-        .pagination a:hover {
-            background: #333;
-            color: #fff;
-        }
-        .pagination .current {
-            background: #333;
-            color: #fff;
-            border: 1px solid #333;
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
     <h1>Emergency Kits Dashboard</h1>
-    <a href="add.php">➕ Add New Kit</a>
+    <a href="add.php">+ Add New Kit</a>
 </header>
 
 <table>
@@ -49,7 +23,6 @@
 <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Contents</th>
     <th>Location</th>
     <th>Status</th>
     <th>Actions</th>
@@ -58,7 +31,6 @@
 
 <tbody>
 <?php
-
 $limit = 10; 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if($page < 1) $page = 1;
@@ -69,16 +41,12 @@ $totalRow = $totalResult->fetch_assoc();
 $totalKits = $totalRow['total'];
 $totalPages = ceil($totalKits / $limit);
 
-
-$result = $conn->query("SELECT * FROM kits LIMIT $limit OFFSET $offset");
+$result = $conn->query("SELECT * FROM kits ORDER BY id ASC LIMIT $limit OFFSET $offset");
 
 while($row = $result->fetch_assoc()) {
- 
-    $statusClass = strtolower($row['status']);
-    echo "<tr class='{$statusClass}'>
+    echo "<tr>
         <td>{$row['id']}</td>
         <td>{$row['kit_name']}</td>
-        <td>{$row['contents']}</td>
         <td>{$row['location']}</td>
         <td>{$row['status']}</td>
         <td>
@@ -90,7 +58,6 @@ while($row = $result->fetch_assoc()) {
 ?>
 </tbody>
 </table>
-
 
 <div class="pagination">
 <?php
