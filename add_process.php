@@ -2,13 +2,13 @@
 include("db_connect.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $kit_name = $_POST['kit_name'];
+    $kit_type = $_POST['kit_type'];
     $location = $_POST['location'];
     $status   = $_POST['status'];
 
-    // Insert query without contents column
-    $stmt = $conn->prepare("INSERT INTO kits (kit_name, location, status) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $kit_name, $location, $status);
+    // Insert query with kit_type, location, and status
+    $stmt = $conn->prepare("INSERT INTO kits (kit_type, location, status) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $kit_type, $location, $status);
 
     if ($stmt->execute()) {
         header("Location: index.php");
