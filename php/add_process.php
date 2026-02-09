@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $location = $_POST['location'];
     $status   = $_POST['status'];
 
-    // Insert query with kit_type, location, and status
+    // Database insert using kit_type, location, and status
     $stmt = $conn->prepare("INSERT INTO kits (kit_type, location, status) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $kit_type, $location, $status);
 
