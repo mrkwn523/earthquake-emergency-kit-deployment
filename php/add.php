@@ -12,7 +12,7 @@
     <a href="index.php">← Back to Dashboard</a>
 </header>
 
-<!-- Emergency kit preview area -->
+<!-- Emergency kit display section -->
 <div class="kit-gallery">
     <div class="kit-card">
         <img src="familykit.png" alt="Family Kit">
@@ -46,10 +46,10 @@
     </div>
 </div>
 
-<!-- Input form area -->
+<!-- Form input area -->
 <div class="form-container">
     <form method="POST" action="add_process.php">
-        <!-- Select kit type using radio buttons -->
+        <!-- Choose kit type using radio buttons -->
         <label>Kit Type</label>
         <div class="radio-group">
             <label><input type="radio" name="kit_type" value="Family Kit" required> Family Kit</label>
@@ -57,12 +57,12 @@
             <label><input type="radio" name="kit_type" value="Rescue Kit"> Rescue Kit</label>
         </div>
 
-        <!-- Enter location -->
+        <!-- Input location -->
         <label for="location">Location</label>
         <textarea name="location" id="location" rows="3" required></textarea>
 
 
-        <!-- Choose status -->
+        <!-- Select current status -->
         <label for="status">Status</label>
         <select name="status" id="status" required>
             <option value="Currently Stocked">Currently Stocked</option>
