@@ -13,8 +13,8 @@ h1, h2 {
 
 /* Header */
 header {
-    background: #b22222;   /* main red header bar */
-    color: #fff;           /* default text color inside the header */
+    background: #b22222;   
+    color: #fff;           
     padding: 20px;
     min-height: 60px;
     border-radius: 6px;
@@ -30,7 +30,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 1.8em;
-    color: #fff;           /* keep title visible on dark background */
+    color: #fff;           
 }
 
 header a {
@@ -179,9 +179,9 @@ a:hover {
 .form-container input[type="text"],
 .form-container select,
 .form-container textarea {
-    width: 100%;          /* stretch input across the form */
-    max-width: 600px;     /* limit field width */
-    padding: 12px;        /* add more height to inputs */
+    width: 100%;          
+    max-width: 600px;     
+    padding: 12px;       
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -189,8 +189,8 @@ a:hover {
     background: #fff;
     display: block;
     margin-left: auto;
-    margin-right: auto;   /* center the fields */
-    resize: none;     /* prevent resizing */
+    margin-right: auto;   
+    resize: none;     
 }
 
 .form-container button {
@@ -241,12 +241,12 @@ a:hover {
     color: #fff;
 }
 
-/* Radio Buttons aligned horizontally */
+/* Radio Buttons */
 .radio-group {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    gap: 40px;            /* spacing between radio options */
+    gap: 40px;           
 }
 
 .radio-group label {
@@ -255,9 +255,9 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 6px;
-    white-space: nowrap;  /* stop text from wrapping */
+    white-space: nowrap;  
 }
 
 .radio-group input[type="radio"] {
-    transform: scale(1.2); /* make radio buttons slightly larger */
+    transform: scale(1.2); 
 }
