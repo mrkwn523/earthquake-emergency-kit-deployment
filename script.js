@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const forms = document.querySelectorAll("form");
     forms.forEach(form => {
         form.addEventListener("submit", function (event) {
-
+            //kit selecttion
             let kitTypeSelected = form.querySelector("input[name='kit_type']:checked");
             if (!kitTypeSelected) {
                 alert("Please select a Kit Type.");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
 
-            
+            //location selection
             let locationInput = form.querySelector("[name='location']");
             if (!locationInput.value.trim()) {
                 alert("Location is required.");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
 
-
+            //status selection
             let statusSelect = form.querySelector("[name='status']");
             if (!statusSelect.value.trim()) {
                 alert("Please select a Status.");
