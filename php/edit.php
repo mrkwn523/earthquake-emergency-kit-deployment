@@ -21,7 +21,7 @@ $row = $result->fetch_assoc();
     <a href="index.php?page=<?php echo $page; ?>">← Back to Dashboard</a>
 </header>
 
-<!-- Kit Gallery Section -->
+<!-- Display kit preview section -->
 <div class="kit-gallery">
     <div class="kit-card">
         <img src="familykit.png" alt="Family Kit">
@@ -60,7 +60,7 @@ $row = $result->fetch_assoc();
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
         <input type="hidden" name="page" value="<?php echo $page; ?>">
 
-        <!-- Kit Type via Radio Buttons -->
+        <!-- Select kit type using radio buttons -->
         <label>Kit Type</label>
         <div class="radio-group">
             <label>
@@ -80,12 +80,11 @@ $row = $result->fetch_assoc();
             </label>
         </div>
 
-        <!-- Location -->
+        <!-- Enter location -->
         <label for="location">Location</label>
         <textarea name="location" id="location" rows="3" required><?php echo $row['location']; ?></textarea>
 
-
-        <!-- Status -->
+        <!-- Select status -->
         <label for="status">Status</label>
         <select name="status" id="status" required>
             <option value="Currently Stocked" <?php if($row['status']=='Currently Stocked') echo 'selected'; ?>>Currently Stocked</option>
