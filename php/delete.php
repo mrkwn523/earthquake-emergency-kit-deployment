@@ -7,12 +7,12 @@ if (isset($_GET['id'])) {
 
     $conn->query("DELETE FROM kits WHERE id = $id");
 
-    // Go back to the same page after deleting the kit
+    // stays in dahsboard
     header("Location: index.php?page=$page&deleted=1");
     exit();
 }
 
-// If no ID is given, return to dashboard
+// If no ID is found, return to dashboard
 header("Location: index.php");
 exit();
 ?>
