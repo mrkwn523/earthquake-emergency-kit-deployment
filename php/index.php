@@ -5,6 +5,7 @@
     <title>Earthquake Emergency Kit Deployment</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        // Confirm deletion before removing a kit
         function confirmDelete() {
             return confirm("Are you sure you want to delete this kit?");
         }
@@ -18,6 +19,7 @@
     <a href="add.php">+ Add New Kit</a>
 </header>
 
+<!-- Table showing all kits -->
 <table>
 <thead>
 <tr>
@@ -31,18 +33,22 @@
 
 <tbody>
 <?php
+// Pagination setup
 $limit = 10; 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
 
+// Get total number of kits
 $totalResult = $conn->query("SELECT COUNT(*) as total FROM kits");
 $totalRow = $totalResult->fetch_assoc();
 $totalKits = $totalRow['total'];
 $totalPages = ceil($totalKits / $limit);
 
+// Fetch kits for current page
 $result = $conn->query("SELECT * FROM kits ORDER BY id ASC LIMIT $limit OFFSET $offset");
 
+// Display each kit in table rows
 while($row = $result->fetch_assoc()) {
     echo "<tr>
         <td>{$row['id']}</td>
@@ -59,6 +65,7 @@ while($row = $result->fetch_assoc()) {
 </tbody>
 </table>
 
+<!-- Pagination links -->
 <div class="pagination">
 <?php
 for($i = 1; $i <= $totalPages; $i++) {
