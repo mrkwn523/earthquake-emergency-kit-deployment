@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Form validation
+    // Basic form checking
     const forms = document.querySelectorAll("form");
     forms.forEach(form => {
         form.addEventListener("submit", function (event) {
-            // Kit Type (radio buttons)
+            // Kit Type selection (radio buttons)
             let kitTypeSelected = form.querySelector("input[name='kit_type']:checked");
             if (!kitTypeSelected) {
                 alert("Please select a Kit Type.");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
 
-            // Location (text input)
+            // Location field (text input)
             let locationInput = form.querySelector("[name='location']");
             if (!locationInput.value.trim()) {
                 alert("Location is required.");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
 
-            // Status (dropdown)
+            // Status field (dropdown menu)
             let statusSelect = form.querySelector("[name='status']");
             if (!statusSelect.value.trim()) {
                 alert("Please select a Status.");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Confirmation before delete
+// Ask confirmation before removing data
 function confirmDelete() {
     return confirm("Are you sure you want to delete this kit?");
 }
